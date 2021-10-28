@@ -7,6 +7,7 @@ const resetBtn = document.createElement("button");
 drawBtn.classList.add("button");
 eraseBtn.classList.add("button");
 resetBtn.classList.add("button");
+controlPanel.classList.add("controlPanel");
 
 drawBtn.textContent = "Draw";
 eraseBtn.textContent = "Erase";
@@ -36,9 +37,14 @@ function createGrid(num) {
 
 createGrid(16);
 
+function randomNumber(x, y) {
+    const rgb = Math.random() * (y-x) + x;
+    return rgb.toString();
+}
+
 function draw() {
     container.addEventListener('mouseover', function(e) {
-        e.target.style.background = "rgb(22, 108, 238)";
+        e.target.style.background = `rgb(${randomNumber(0,255)}, ${randomNumber(0,255)}, ${randomNumber(0,255)})`;
     }); 
 }
 
@@ -58,13 +64,15 @@ function resize() {
     const container = document.querySelector("#container");
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {container.removeChild(cell)});
-    const size = prompt("What grid size do you want?");
+    const size = prompt("How many rows do you want?");
     if (size < 100) {
         createGrid(size);
     } else if (size >= 100) {
         alert("Sorry, it has to be less than 100.")
         resize();
-    } 
+    } else {
+        resize();
+    }
 }
 
 resetBtn.addEventListener('click', reset);

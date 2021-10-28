@@ -27,7 +27,14 @@ button {
     margin: 10px;
     font-size: 20px;
     font-family: sans-serif;
-    background-color: white;
-    color: blue;
+    background-color: rgb(246, 255, 246);
+    color: rgb(22, 108, 238);
     border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.controlPanel {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
 }
