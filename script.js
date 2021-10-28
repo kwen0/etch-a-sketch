@@ -9,7 +9,7 @@ eraseBtn.classList.add("button");
 resetBtn.classList.add("button");
 controlPanel.classList.add("controlPanel");
 
-drawBtn.textContent = "Draw";
+drawBtn.textContent = "Rainbow";
 eraseBtn.textContent = "Erase";
 resetBtn.textContent = "Clear";
 
@@ -36,6 +36,10 @@ function createGrid(num) {
 }
 
 createGrid(16);
+
+container.addEventListener('mouseover', function(e) {
+    e.target.style.background = "rgb(22, 108, 238)";
+}); 
 
 function randomNumber(x, y) {
     const rgb = Math.random() * (y-x) + x;
